@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Medicine Reminder</title>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #e6eef5;
+        }
+
+        h1 {
+            margin-top: 30px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 250px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: purple;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        #reader {
+            width: 300px;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        #resultBox {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Smart Medicine Reminder System</h1>
+
+<input type="text" id="patientName" placeholder="Enter Patient Name"><br>
+<input type="text" id="barcodeInput" placeholder="Enter or Scan Barcode"><br>
+
+<button onclick="startScanner()">Scan Barcode</button>
+<button onclick="showDetails()">Show Details</button>
+
+<div id="reader"></div>
+
+<div id="resultBox"></div>
+
+<script>
+
+    function startScanner() {
+        let html5QrcodeScanner = new Html5QrcodeScanner(
+            "reader",
+            { fps: 10, qrbox: 250 }
+        );
+
+        html5QrcodeScanner.render(onScanSuccess);
+    }
+
+    function onScanSuccess(decodedText) {
+        document.getElementById("barcodeInput").value = decodedText;
+    }
+
+    function showDetails() {
+        let name = document.getElementById("patientName").value;
+        let barcode = document.getElementById("barcodeInput").value;
+
+        if(name === "" || barcode === "") {
+            alert("Please enter name and scan barcode");
+            return;
+        }
+
+        document.getElementById("resultBox").innerHTML =
+            "Patient Name: " + name + "<br>Barcode: " + barcode + "<br>Medicine Time: 8:00 AM & 8:00 PM";
+    }
+
+</script>
+
+</body>
+</html>
