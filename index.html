@@ -1,94 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Smart Medicine Reminder</title>
-    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #e6eef5;
-        }
-
-        h1 {
-            margin-top: 30px;
-        }
-
-        input {
-            padding: 10px;
-            margin: 10px;
-            width: 250px;
-        }
-
-        button {
-            padding: 10px 15px;
-            background-color: purple;
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin: 5px;
-        }
-
-        #reader {
-            width: 300px;
-            margin: auto;
-            margin-top: 20px;
-        }
-
-        #resultBox {
-            margin-top: 20px;
-            font-size: 18px;
-            font-weight: bold;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>boost rap project</title>
 </head>
-
 <body>
-
-<h1>Smart Medicine Reminder System</h1>
-
-<input type="text" id="patientName" placeholder="Enter Patient Name"><br>
-<input type="text" id="barcodeInput" placeholder="Enter or Scan Barcode"><br>
-
-<button onclick="startScanner()">Scan Barcode</button>
-<button onclick="showDetails()">Show Details</button>
-
-<div id="reader"></div>
-
-<div id="resultBox"></div>
-
-<script>
-
-    function startScanner() {
-        let html5QrcodeScanner = new Html5QrcodeScanner(
-            "reader",
-            { fps: 10, qrbox: 250 }
-        );
-
-        html5QrcodeScanner.render(onScanSuccess);
-    }
-
-    function onScanSuccess(decodedText) {
-        document.getElementById("barcodeInput").value = decodedText;
-    }
-
-    function showDetails() {
-        let name = document.getElementById("patientName").value;
-        let barcode = document.getElementById("barcodeInput").value;
-
-        if(name === "" || barcode === "") {
-            alert("Please enter name and scan barcode");
-            return;
-        }
-
-        document.getElementById("resultBox").innerHTML =
-            "Patient Name: " + name + "<br>Barcode: " + barcode + "<br>Medicine Time: 8:00 AM & 8:00 PM";
-    }
-
+    <h1 class="text-center display-1">lakshmi kanteshagouda</h1>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <script>https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js
 </script>
+<p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro sit magni beatae ipsa nulla id ex deleniti sunt est corrupti nobis necessitatibus illo, modi exercitationem facere cumque temporibus quam reprehenderit!</p>
+
+<br>
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-light">Light</button>
+<button type="button" class="btn btn-dark">Dark</button>
 
 </body>
 
 </html>
-
