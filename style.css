@@ -1,0 +1,16 @@
+h1{
+    color: 
+    blue;
+    background-color: #000010;
+    padding: 20px;
+    margin: 30px;
+    margin-top: 10px;
+    margin-bottom: 50;
+}
+.my-color{
+    color: red;
+    font-size: 35px;
+}
+#my-tag{
+    color: green;
+}
